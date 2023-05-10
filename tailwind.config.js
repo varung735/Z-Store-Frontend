@@ -10,7 +10,8 @@ module.exports = {
         xl: "1280px"
       },
       colors: {
-
+        "matt-green": "#285D34",
+        "off-white": "#f5f5f5"
       },
       fontFamily: {
 
@@ -19,7 +20,9 @@ module.exports = {
         
       },
       backgroundImage: {
-        'title': '/images/title-bg'
+        'title': "url('../public/pc-images/title-bg.jpg')",
+        // mobile images
+        "mobile-title": "url('../public/mobile-images/title.png')"
       }
     },
   },
