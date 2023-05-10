@@ -14,7 +14,7 @@ const HomePage = () => {
             <img src="/images/logo.png" alt="logo" className='h-[50px] w-[150px]' />
           </div>
 
-          { drawer &&  <div className='w-full flex flex-col items-center transition-all ease-in-out duration-300'>
+          { drawer &&  <div className='w-full flex flex-col items-center'>
 
             {/* search bar */}
             <div className='p-2 flex items-center gap-1 w-full'>
