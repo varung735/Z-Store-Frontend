@@ -10,9 +10,8 @@ module.exports = {
         xl: "1280px"
       },
       colors: {
-        "matt-green": "#285D34",
         "off-white": "#f5f5f5",
-        "black": "#070B0B",
+        "blackish": "#070B0B",
         "creamish": "#AA9C92",
         "dark-grey": "#5A5C53",
         "darker-grey": "#2C3430",
@@ -29,6 +28,7 @@ module.exports = {
         
       },
       backgroundImage: {
+        // pc images
         "title": "url('../public/pc-images/title-bg.jpg')",
         "women-with-jewelry": "url('../public/pc-images/woman-with-jewelry.jpg')",
 
