@@ -1,13 +1,17 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/components/HomePage.jsx"],
+  content: [
+    "./src/components/HomePage.jsx",
+    "./src/components/LoginPage.jsx",
+    "./src/components/SignUpPage.jsx",
+  ],
   theme: {
     extend: {
       screens: {
-        sm: "640px",
-        md: "768px",
-        lg: "1024px",
-        xl: "1280px"
+        // sm: "640px",
+        // md: "768px",
+        // lg: "1024px",
+        // xl: "1280px"
       },
       colors: {
         "off-white": "#f5f5f5",
@@ -31,10 +35,14 @@ module.exports = {
         // pc images
         "title": "url('../public/pc-images/title-bg.jpg')",
         "women-with-jewelry": "url('../public/pc-images/woman-with-jewelry.jpg')",
+        "login": "url('../public/pc-images/login-bg.jpg')",
 
         // mobile images
+        "tablet-title": "url('../public/mobile-images/title-md.jpg')",
         "mobile-title": "url('../public/mobile-images/title.png')",
         "woman-with-ring": "url('../public/mobile-images/women-with-ring.jpg')",
+        "woman-with-jewelary-tab": "url('../public/mobile-images/woman-with-jewelary-tab.jpg')",
+        "login-mob": "url('../public/mobile-images/login-bg-mobile.jpg')",
 
         // card images
         "women": "url('../public/images/women-fashion.jpg')",
