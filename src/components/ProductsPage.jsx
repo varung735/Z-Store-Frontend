@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
+import ProductCard from '../props/ProductCard';
+import MensFilter from '../props/MensFilter';
 
-function SignUpPage() {
+function ProductsPage() {
     const [drawer, setDrawer] = useState(false);
+    const [selectedCategory, setSelectedCategory] = useState(null);
+
+    const categories = ["Men", "Women", "kid", "Jewelry", "Cosmetics", "Bags"];
 
     return (
-        <div className='bg-off-white h-[93vh]'>
-
+        <div className='h-[100vh] bg-off-white'>
             {/* Navbar begins here */}
             <div className='lg:hidden flex flex-col lg:flex-row items-center justify-between bg-off-white'>
 
@@ -67,51 +71,82 @@ function SignUpPage() {
             </div>
             {/* navbar for larger displays ends here*/}
 
-            {/* container div begins here */}
-            <div className='h-full flex flex-row'>
+            {/* Products Holder Begins Here*/}
+            <div className='p-5 flex flex-col items-center gap-3'>
 
-                {/* Banner Section Begins Here */}
-                <div className='hidden lg:w-[40%] lg:flex lg:justify-center lg:items-center lg:bg-login lg:bg-cover'>
-                    <h1 className='text-white text-5xl'>Z-Store</h1>
-                </div>
-                {/* Banner Section Ends Here */}
+                {/* Filters */}
+                <div className='w-full'>
 
-                {/* Login/Sign-up form begins here */}
-                <div className='w-full lg:w-[60%] bg-login-mob lg:bg-none lg:bg-blackish bg-cover bg-no-repeat h-full w-full flex justify-center lg:justify-end items-center backdrop-brightness-50' >
+                    <h1 className='mb-3 text-3xl'>Filters</h1>
 
-                    {/* login/signup form */}
-                    <div className='p-5 lg:mr-5 h-fit w-[90%] lg:w-[55%] bg-blackish/60 lg:bg-off-white/20 text-white flex flex-col gap-5 rounded-lg' >
-                        <h1 className='text-center text-5xl'>Sign Up</h1>
-                        {/* form */}
-                        <form action="submit">
-                            <div className='flex flex-col'>
-                                <label htmlFor="name">Name</label>
-                                <input type="text" placeholder='Enter your name' id='name' className='p-2 w-full rounded-md outline-none' />
+                    {/* Filter Holder */}
+                    <div>
+                        {/* Categories */}
+                        <div className='bg-off-whiter w-full flex flex-col shadow-md'>
+
+                            <div className='p-5 w-full flex items-center justify-between border-b border-black'>
+                                <h1 className='text-xl font-medium'>Categories</h1>
+                                <div className='w-[10px] h-[10px] border-b-2 border-r-2 border-black rotate-45'></div>
                             </div>
-                            <div className='mt-4 flex flex-col'>
-                                <label htmlFor="email">Email</label>
-                                <input type="email" placeholder='Enter your email' id='email' className='p-2 w-full rounded-md outline-none' />
+
+                            {/* drop down */}
+                            <div className='p-5 flex flex-col gap-2'>
+                                {categories.map((category) => {
+                                    return <div className='flex gap-2'>
+                                        <input type="checkbox" 
+                                        name={category} 
+                                        id={category+"Checkbox"}
+                                        checked={selectedCategory === category}
+                                        onChange={() => {setSelectedCategory(category)}} />
+                                        <h1 className='text-md font-medium'>{category}</h1>
+                                    </div>
+                                })}
                             </div>
-                            <div className='mt-4 flex flex-col'>
-                                <label htmlFor="password">Password</label>
-                                <input type="password" placeholder='Enter the password' id='password' className='p-2 w-full rounded-md outline-none' />
+                        </div>
+
+                        {/* Sub-Categories */}
+                        <MensFilter />
+
+                        {/* Price */}
+                        <div className='bg-off-whiter w-full flex flex-col shadow-md'>
+
+                            <div className='p-5 w-full flex items-center justify-between border-b border-black'>
+                                <h1 className='text-xl font-medium'>Price Range</h1>
+                                <div className='w-[10px] h-[10px] border-b-2 border-r-2 border-black rotate-45'></div>
                             </div>
-                            <div className='mt-4 flex flex-col'>
-                                <label htmlFor="re-password">Confirm Password</label>
-                                <input type="password" placeholder='Re-enter your password' id='re-password' className='p-2 w-full rounded-md outline-none' />
+
+                            {/* drop down */}
+                            <div className='p-5 flex flex-col gap-2'>
+                                <div className='flex gap-2'>
+                                    <input type="checkbox" name="Mens" id="MenCheckBox" />
+                                    <h1 className='text-md font-medium'>149 to 500</h1>
+                                </div>
+                                <div className='flex gap-2'>
+                                    <input type="checkbox" name="Mens" id="MenCheckBox" />
+                                    <h1 className='text-md font-medium'>500 to 1000</h1>
+                                </div>
+                                <div className='flex gap-2'>
+                                    <input type="checkbox" name="Mens" id="MenCheckBox" />
+                                    <h1 className='text-md font-medium'>1000 to 2570</h1>
+                                </div>
+                                <div className='flex gap-2'>
+                                    <input type="checkbox" name="Mens" id="MenCheckBox" />
+                                    <h1 className='text-md font-medium'>5000+</h1>
+                                </div>
                             </div>
-                            <button className='bg-off-white text-black text-xl font-medium mt-6 p-3 w-full rounded-lg'>Submit</button>
-                        </form>
+                        </div>
+
                     </div>
 
                 </div>
-                {/* Login/Sign-up form begins here */}
 
+                {/* Product Cards */}
+                <ProductCard />
             </div>
-            {/* container div ends here */}
+            {/* Products Holder Ends Here*/}
 
         </div>
     )
 }
 
-export default SignUpPage
+export default ProductsPage

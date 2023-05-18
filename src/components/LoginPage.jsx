@@ -72,7 +72,7 @@ function LoginPage() {
 
                 {/* Banner Section Begins Here */}
                 <div className='hidden lg:w-[40%] lg:flex lg:justify-center lg:items-center lg:bg-login lg:bg-cover'>
-                    <h1>Z-Store</h1>
+                    <h1 className='text-white text-5xl'>Z-Store</h1>
                 </div>
                 {/* Banner Section Ends Here */}
 

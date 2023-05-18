@@ -4,6 +4,9 @@ module.exports = {
     "./src/components/HomePage.jsx",
     "./src/components/LoginPage.jsx",
     "./src/components/SignUpPage.jsx",
+    "./src/components/ProductsPage.jsx",
+    "./src/props/ProductCard.jsx",
+    "./src/props/MensFilter.jsx"
   ],
   theme: {
     extend: {
@@ -16,14 +19,7 @@ module.exports = {
       colors: {
         "off-white": "#f5f5f5",
         "blackish": "#070B0B",
-        "creamish": "#AA9C92",
-        "dark-grey": "#5A5C53",
-        "darker-grey": "#2C3430",
-        "med-grey": "#777E76",
-        "light-grey": "#7B8584",
-        "dark-greenish": "#39453D",
-        "dark-blueish": "#39484C",
-        "brownish": "#8E553D"
+        "off-whiter": "#f9f9f9"
       },
       fontFamily: {
 
