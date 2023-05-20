@@ -3,13 +3,15 @@ import ProductCard from '../props/ProductCard';
 import MensFilter from '../props/MensFilter';
 
 function ProductsPage() {
-    const [drawer, setDrawer] = useState(false);
+    const [drawer, setDrawer] = useState(true);
+    const [categoryDrawer, setCategoryDrawer] = useState(true);
+    const [priceDrawer, setPriceDrawer] = useState(true);
     const [selectedCategory, setSelectedCategory] = useState(null);
 
     const categories = ["Men", "Women", "kid", "Jewelry", "Cosmetics", "Bags"];
 
     return (
-        <div className='h-[100vh] bg-off-white'>
+        <div className='bg-off-white'>
             {/* Navbar begins here */}
             <div className='lg:hidden flex flex-col lg:flex-row items-center justify-between bg-off-white'>
 
@@ -20,7 +22,7 @@ function ProductsPage() {
                 </div>
 
                 {/* drawer for mobile display stays hidden in larger displays */}
-                {drawer && <div className='w-full flex flex-col items-center'>
+                {drawer && <div className='w-full flex flex-col items-center border-b border-black'>
 
                     {/* search bar for mobile displays*/}
                     <div className='p-2 flex items-center gap-1 w-full'>
@@ -44,7 +46,7 @@ function ProductsPage() {
             {/* Navbar ends here */}
 
             {/* navbar for larger displays begins here*/}
-            <div className='hidden lg:w-full lg:flex lg:flex-row lg:items-center lg:justify-between bg-off-white'>
+            <div className='hidden lg:w-full lg:flex lg:flex-row lg:items-center lg:justify-between bg-off-white border-b border-black'>
 
                 {/* Nav Logo */}
                 <div className='w-[20%] flex flex-row justify-between items-center p-2'>
@@ -72,25 +74,28 @@ function ProductsPage() {
             {/* navbar for larger displays ends here*/}
 
             {/* Products Holder Begins Here*/}
-            <div className='p-5 flex flex-col items-center gap-3'>
+            <div className='p-5 h-full flex flex-col lg:flex-row items-center lg:items-start gap-3'>
 
                 {/* Filters */}
-                <div className='w-full'>
+                <div className='w-full lg:w-[20%] flex flex-wrap'>
 
                     <h1 className='mb-3 text-3xl'>Filters</h1>
 
                     {/* Filter Holder */}
-                    <div>
-                        {/* Categories */}
-                        <div className='bg-off-whiter w-full flex flex-col shadow-md'>
+                    <div className='w-full flex flex-col md:flex-row md:flex-wrap lg:flex-col md:justify-center md:gap-5'>
 
+                        {/* Category filter div */}
+                        <div className='w-full md:w-[45%] lg:w-full bg-off-whiter flex flex-col shadow-md'>
+
+                            {/* Categories (heading & Arrow)*/}
                             <div className='p-5 w-full flex items-center justify-between border-b border-black'>
                                 <h1 className='text-xl font-medium'>Categories</h1>
-                                <div className='w-[10px] h-[10px] border-b-2 border-r-2 border-black rotate-45'></div>
+                                <div className='w-[10px] h-[10px] border-b-2 border-r-2 border-black rotate-45 cursor-pointer' 
+                                 onClick={() => {setCategoryDrawer(!categoryDrawer)}}></div>
                             </div>
 
                             {/* drop down */}
-                            <div className='p-5 flex flex-col gap-2'>
+                            {categoryDrawer &&  <div className='p-5 flex flex-col gap-2'>
                                 {categories.map((category) => {
                                     return <div className='flex gap-2'>
                                         <input type="checkbox" 
@@ -101,22 +106,23 @@ function ProductsPage() {
                                         <h1 className='text-md font-medium'>{category}</h1>
                                     </div>
                                 })}
-                            </div>
+                            </div>}
                         </div>
 
-                        {/* Sub-Categories */}
+                        {/* Sub-Categories Filter div*/}
                         <MensFilter />
 
-                        {/* Price */}
-                        <div className='bg-off-whiter w-full flex flex-col shadow-md'>
+                        {/* Price Filter div*/}
+                        <div className='w-full md:w-[45%] lg:w-full mt-3 md:mt-0 bg-off-whiter flex flex-col shadow-md'>
 
                             <div className='p-5 w-full flex items-center justify-between border-b border-black'>
                                 <h1 className='text-xl font-medium'>Price Range</h1>
-                                <div className='w-[10px] h-[10px] border-b-2 border-r-2 border-black rotate-45'></div>
+                                <div className='w-[10px] h-[10px] border-b-2 border-r-2 border-black rotate-45 cursor-pointer'
+                                 onClick={() => {setPriceDrawer(!priceDrawer)}}></div>
                             </div>
 
                             {/* drop down */}
-                            <div className='p-5 flex flex-col gap-2'>
+                            { priceDrawer &&  <div className='p-5 flex flex-col gap-2'>
                                 <div className='flex gap-2'>
                                     <input type="checkbox" name="Mens" id="MenCheckBox" />
                                     <h1 className='text-md font-medium'>149 to 500</h1>
@@ -133,7 +139,7 @@ function ProductsPage() {
                                     <input type="checkbox" name="Mens" id="MenCheckBox" />
                                     <h1 className='text-md font-medium'>5000+</h1>
                                 </div>
-                            </div>
+                            </div>}
                         </div>
 
                     </div>
@@ -141,7 +147,20 @@ function ProductsPage() {
                 </div>
 
                 {/* Product Cards */}
-                <ProductCard />
+                <div className='w-full lg:w-[80%] mt-5 md:mt-0 flex flex-col md:flex-row md:flex-wrap md:justify-center gap-3'>
+                    <ProductCard />
+                    <ProductCard />
+                    <ProductCard />
+                    <ProductCard />
+                    <ProductCard />
+                    <ProductCard />
+                    <ProductCard />
+                    <ProductCard />
+                    <ProductCard />
+                    <ProductCard />
+                    <ProductCard />
+                    <ProductCard />
+                </div>
             </div>
             {/* Products Holder Ends Here*/}
 

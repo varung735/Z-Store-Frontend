@@ -1,41 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react';
 
 function MensFilter() {
-    return (
-        <div className='mt-3 bg-off-whiter w-full flex flex-col shadow-md'>
+    const [selectedCategory, setSelectedCategory] = useState(null);
+    const [isOpen, setIsOpen] = useState(true);
 
-            <div className='p-5 w-full flex items-center justify-between border-b border-black'>
+    const subCategories = ["T-Shirts", "Shirts", "Jeans", "Shorts", "Jackets", "Hoodies"];
+
+    return (
+        
+        <div className='w-full md:w-[45%] lg:w-full mt-3 md:mt-0 bg-off-whiter flex flex-col shadow-md'>
+
+            <div className='p-5 w-full flex items-center justify-between'>
                 <h1 className='text-xl font-medium'>Products</h1>
-                <div className='w-[10px] h-[10px] border-b-2 border-r-2 border-black rotate-45'></div>
+                <div className='w-[10px] h-[10px] border-b-2 border-r-2 border-black rotate-45 cursor-pointer' onClick={() => {setIsOpen(!isOpen)}}></div>
             </div>
 
             {/* drop down */}
-            <div className='p-5 flex flex-col gap-2'>
-                <div className='flex gap-2'>
-                    <input type="checkbox" name="t-shirt" id="TshirtCheckBox" />
-                    <h1 className='text-md font-medium'>T-shirts</h1>
-                </div>
-                <div className='flex gap-2'>
-                    <input type="checkbox" name="shirt" id="ShirtCheckBox" />
-                    <h1 className='text-md font-medium'>Shirts</h1>
-                </div>
-                <div className='flex gap-2'>
-                    <input type="checkbox" name="jeans" id="JeansCheckBox" />
-                    <h1 className='text-md font-medium'>Jeans</h1>
-                </div>
-                <div className='flex gap-2'>
-                    <input type="checkbox" name="shorts" id="ShortsCheckBox" />
-                    <h1 className='text-md font-medium'>Shorts</h1>
-                </div>
-                <div className='flex gap-2'>
-                    <input type="checkbox" name="jacket" id="JacketsCheckBox" />
-                    <h1 className='text-md font-medium'>Jackets</h1>
-                </div>
-                <div className='flex gap-2'>
-                    <input type="checkbox" name="hoodie" id="HoodieCheckBox" />
-                    <h1 className='text-md font-medium'>Hoodies</h1>
-                </div>
-            </div>
+            {isOpen && <div className='p-5 flex flex-col gap-2 border-t border-black'>
+                {subCategories.map((category) => {
+                    return <div className='flex gap-2'>
+                        <input type="checkbox"
+                            name={category}
+                            id={category + "Checkbox"}
+                            checked={selectedCategory === category}
+                            onChange={() => { setSelectedCategory(category) }} />
+                        <h1 className='text-md font-medium'>{category}</h1>
+                    </div>
+                })}
+            </div>}
         </div>
     )
 }
