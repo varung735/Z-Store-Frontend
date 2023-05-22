@@ -3,7 +3,7 @@ import ProductCard from '../props/ProductCard';
 import MensFilter from '../props/MensFilter';
 
 function ProductsPage() {
-    const [drawer, setDrawer] = useState(true);
+    const [drawer, setDrawer] = useState(false);
     const [categoryDrawer, setCategoryDrawer] = useState(true);
     const [priceDrawer, setPriceDrawer] = useState(true);
     const [selectedCategory, setSelectedCategory] = useState(null);
@@ -12,6 +12,7 @@ function ProductsPage() {
 
     return (
         <div className='bg-off-white'>
+            
             {/* Navbar begins here */}
             <div className='lg:hidden flex flex-col lg:flex-row items-center justify-between bg-off-white'>
 
@@ -88,14 +89,14 @@ function ProductsPage() {
                         <div className='w-full md:w-[45%] lg:w-full bg-off-whiter flex flex-col shadow-md'>
 
                             {/* Categories (heading & Arrow)*/}
-                            <div className='p-5 w-full flex items-center justify-between border-b border-black'>
+                            <div className='p-5 w-full flex items-center justify-between'>
                                 <h1 className='text-xl font-medium'>Categories</h1>
                                 <div className='w-[10px] h-[10px] border-b-2 border-r-2 border-black rotate-45 cursor-pointer' 
                                  onClick={() => {setCategoryDrawer(!categoryDrawer)}}></div>
                             </div>
 
                             {/* drop down */}
-                            {categoryDrawer &&  <div className='p-5 flex flex-col gap-2'>
+                            {categoryDrawer &&  <div className='p-5 flex flex-col gap-2 border-t border-black'>
                                 {categories.map((category) => {
                                     return <div className='flex gap-2'>
                                         <input type="checkbox" 
@@ -115,14 +116,14 @@ function ProductsPage() {
                         {/* Price Filter div*/}
                         <div className='w-full md:w-[45%] lg:w-full mt-3 md:mt-0 bg-off-whiter flex flex-col shadow-md'>
 
-                            <div className='p-5 w-full flex items-center justify-between border-b border-black'>
+                            <div className='p-5 w-full flex items-center justify-between'>
                                 <h1 className='text-xl font-medium'>Price Range</h1>
                                 <div className='w-[10px] h-[10px] border-b-2 border-r-2 border-black rotate-45 cursor-pointer'
                                  onClick={() => {setPriceDrawer(!priceDrawer)}}></div>
                             </div>
 
                             {/* drop down */}
-                            { priceDrawer &&  <div className='p-5 flex flex-col gap-2'>
+                            { priceDrawer &&  <div className='p-5 flex flex-col gap-2 border-t border-black'>
                                 <div className='flex gap-2'>
                                     <input type="checkbox" name="Mens" id="MenCheckBox" />
                                     <h1 className='text-md font-medium'>149 to 500</h1>

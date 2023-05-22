@@ -5,6 +5,8 @@ module.exports = {
     "./src/components/LoginPage.jsx",
     "./src/components/SignUpPage.jsx",
     "./src/components/ProductsPage.jsx",
+    "./src/components/ProductDisplayPage.jsx",
+    "./src/components/CustomerProfile.jsx",
     "./src/props/ProductCard.jsx",
     "./src/props/MensFilter.jsx"
   ],

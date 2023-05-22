@@ -1,4 +1,5 @@
 import './App.css';
+import CustomerProfile from './components/CustomerProfile';
 import HomePage from './components/HomePage';
 import LoginPage from './components/LoginPage';
 import ProductDisplayPage from './components/ProductDisplayPage';
@@ -8,8 +9,9 @@ import SignUpPage from './components/SignUpPage';
 function App() {
   return (
     <>
-      <ProductsPage />
-      {/* <ProductDisplayPage /> */}
+      {/* <CustomerProfile /> */}
+      {/* <ProductsPage /> */}
+      <ProductDisplayPage />
       {/* <HomePage /> */}
       {/* <LoginPage /> */}
       {/* <SignUpPage /> */}
