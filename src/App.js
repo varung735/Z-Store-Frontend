@@ -5,13 +5,15 @@ import LoginPage from './components/LoginPage';
 import ProductDisplayPage from './components/ProductDisplayPage';
 import ProductsPage from './components/ProductsPage';
 import SignUpPage from './components/SignUpPage';
+import Cart from "./components/Cart";
 
 function App() {
   return (
     <>
+      <Cart />
       {/* <CustomerProfile /> */}
       {/* <ProductsPage /> */}
-      <ProductDisplayPage />
+      {/* <ProductDisplayPage /> */}
       {/* <HomePage /> */}
       {/* <LoginPage /> */}
       {/* <SignUpPage /> */}

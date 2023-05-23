@@ -8,7 +8,9 @@ module.exports = {
     "./src/components/ProductDisplayPage.jsx",
     "./src/components/CustomerProfile.jsx",
     "./src/props/ProductCard.jsx",
-    "./src/props/MensFilter.jsx"
+    "./src/props/MensFilter.jsx",
+    "./src/props/ReviewProp.jsx",
+    "./src/props/CartProp.jsx"
   ],
   theme: {
     extend: {

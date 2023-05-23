@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
-import ReviewProp from '../props/ReviewProp';
+import CartProp from '../props/CartProp';
 
-function ProductDisplayPage() {
+function Cart() {
   const [drawer, setDrawer] = useState(false);
 
   return (
-    <div className='bg-off-white'>
-
+    <div className='bg-off-white h-[100vh]'>
       {/* Navbar begins here */}
       <div className='lg:hidden flex flex-col lg:flex-row items-center justify-between bg-off-white'>
 
@@ -68,76 +67,25 @@ function ProductDisplayPage() {
       </div>
       {/* navbar for larger displays ends here*/}
 
-      {/* Product Display, and reviews begins here */}
-      <div className='flex flex-col'>
-        
-        {/* picture & details holder begins here */}
-        <div className='p-5 w-full flex flex-col lg:flex-row'>
+      {/* cart products holder begins here*/}
+      <div className='p-4 flex flex-col'>
 
-          {/* Picture carousal */}
-          <div className='w-full flex items-center justify-center'>
-             {/*Left Arrow */}
-            <div className='mr-2 flex items-center justify-center bg-blackish rounded-full h-[30px] w-[30px] cursor-pointer'>
-              <div className='ml-1 border-b-2 border-l-2 border-white rotate-45 h-[10px] w-[10px]'></div>
-            </div>
-            {/* Images */}
-            <div className='w-[80%]'>
-              <img src="./images/shampoo.jpg" alt="" className='w-full h-[400px]'/>
-            </div>
-            {/* Right Arrow */}
-            <div className='ml-2 flex items-center justify-center bg-blackish rounded-full h-[30px] w-[30px] cursor-pointer'>
-              <div className='mr-1 border-t-2 border-r-2 border-white rotate-45 h-[10px] w-[10px]'></div>
-            </div>
-          </div>
-
-          {/* Product details */}
-          <div className='w-full p-4'>
-            <h1 className='mb-5 text-3xl text-center lg:text-start font-medium'>Product Name</h1>
-            <p className='mb-5 text-center lg:text-start font-normal text-lg leading-6'>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam nihil cumque,
-              ab dolor a repudiandae quasi tempora. Magni, expedita quod.
-            </p>
-            <p className='mb-2 text-center lg:text-start text-md'>Price: 2999/-</p>
-            <p className='text-center lg:text-start text-md'>Size: M</p>
-
-            {/* buttons */}
-            <div className='mt-5 flex flex-col lg:flex-row gap-3'>
-              <button className='w-full lg:w-1/2 bg-blackish p-4 text-white rounded-md cursor-pointer'>Add to Cart</button>
-              <button className='w-full lg:w-1/2 bg-blackish p-4 text-white rounded-md cursor-pointer'>Buy Now</button>
-            </div>
-          </div>
-
+        {/* Buttons */}
+        <div className='flex flex-col gap-3'>
+          <button className='p-3 w-full bg-blackish text-white text-xl font-medium rounded-md cursor-pointer'>Empty Cart</button>
+          <button className='p-3 w-full bg-blackish text-white text-xl font-medium rounded-md cursor-pointer'>Checkout</button>
         </div>
-        {/* picture & details holder ends here */}
 
-        {/* Review Section Begins Here */}
-        <div className='mt-4 flex flex-col'>
-
-          <h1 className='text-center text-3xl font-medium'>Product Reviews</h1>
-
-          {/* Text Area */}
-          <div className='p-4 mt-4 border-b border-black'>
-            <label htmlFor="review" className='text-md'>Write your review for this product</label>
-            <textarea name="review" id="review-text-area" placeholder='Write your thoughts here..' 
-              className='p-2 mt-1 w-full h-[100px] border border-black rounded-md'></textarea>
-          </div>
-
-          {/* Reviews */}
-          <div className='flex flex-col items-center'>
-            <ReviewProp />
-            <ReviewProp />
-            <ReviewProp />
-            <ReviewProp />
-          </div>
-
+        {/* Products */}
+        <div className='mt-4'>
+          <h1 className='mb-4 text-4xl font-medium'>Items in Cart</h1>
+          <CartProp />
         </div>
-        {/* Review Section Ends Here */}
 
       </div>
-      {/* Product Display, and reviews ends here */}
-
+      {/* cart products holder ends here*/}
     </div>
   )
 }
 
-export default ProductDisplayPage
+export default Cart
