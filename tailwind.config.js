@@ -6,6 +6,7 @@ module.exports = {
     "./src/components/SignUpPage.jsx",
     "./src/components/ProductsPage.jsx",
     "./src/components/ProductDisplayPage.jsx",
+    "./src/components/Cart.jsx",
     "./src/components/CustomerProfile.jsx",
     "./src/props/ProductCard.jsx",
     "./src/props/MensFilter.jsx",

@@ -5,7 +5,7 @@ function Cart() {
   const [drawer, setDrawer] = useState(false);
 
   return (
-    <div className='bg-off-white h-[100vh]'>
+    <div className='bg-off-white'>
       {/* Navbar begins here */}
       <div className='lg:hidden flex flex-col lg:flex-row items-center justify-between bg-off-white'>
 
@@ -71,15 +71,24 @@ function Cart() {
       <div className='p-4 flex flex-col'>
 
         {/* Buttons */}
-        <div className='flex flex-col gap-3'>
-          <button className='p-3 w-full bg-blackish text-white text-xl font-medium rounded-md cursor-pointer'>Empty Cart</button>
-          <button className='p-3 w-full bg-blackish text-white text-xl font-medium rounded-md cursor-pointer'>Checkout</button>
+        <div className='flex flex-col md:flex-row lg:flex-row lg:justify-end lg:items-center gap-3'>
+          <h1 className='hidden lg:inline mr-auto text-4xl font-medium'>Items in Cart</h1>
+          <button className='p-3 w-full lg:w-[10%] bg-blackish text-white text-xl font-medium rounded-md cursor-pointer'>Empty Cart</button>
+          <button className='p-3 w-full lg:w-[10%] bg-blackish text-white text-xl font-medium rounded-md cursor-pointer'>Checkout</button>
         </div>
 
         {/* Products */}
         <div className='mt-4'>
-          <h1 className='mb-4 text-4xl font-medium'>Items in Cart</h1>
-          <CartProp />
+          <h1 className='mb-4 text-4xl font-medium lg:hidden'>Items in Cart</h1>
+
+          <div className='flex flex-wrap justify-center items-center gap-4'>
+            <CartProp />  
+            <CartProp />
+            <CartProp />
+            <CartProp />
+            <CartProp />
+            <CartProp />
+          </div>
         </div>
 
       </div>
