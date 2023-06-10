@@ -4,7 +4,7 @@ function CartProp() {
   return (
     <div className='p-3 mb-5 md:w-[45%] lg:w-[25%] flex flex-col items-center shadow-md'>
       <div className='w-full'>
-        <img src="./images/Shampoo.jpg" alt="product-image" className='w-full h-full'/>
+        <img src="./images/Shampoo.jpg" alt="product" className='w-full h-full'/>
       </div>
       <div className='pt-3 pb-3 w-full flex flex-col'>
         <h1 className='text-center text-3xl font-medium'>Product Name</h1>
