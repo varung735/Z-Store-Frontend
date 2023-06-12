@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import SellerProfile from "../components/SellerProfile";
 import ProductsTable from "../props/ProductsTable";
 import SalesChart from '../props/SalesChart';
 
@@ -8,7 +9,7 @@ function SellerDashboard() {
   const [operation, setOperation] = useState("seeProducts");
 
   return (
-    <div className='bg-off-white h-screen'>
+    <div className='bg-off-white flex flex-col h-screen'>
       {/* Navbar begins here */}
       <div className='lg:hidden flex flex-col lg:flex-row items-center justify-between bg-off-white'>
 
@@ -73,10 +74,10 @@ function SellerDashboard() {
       {/* navbar for larger displays ends here*/}
 
       {/* Seller's Dashboard Begins Here*/}
-      <div className='w-full p-5 flex flex-col lg:flex-row'>
+      <div className='w-full p-5 lg:p-0 flex h-screen flex-col lg:flex-row'>
         
         {/* Drop down nav for smaller displays begins here */}
-        <div className='lg:hidden w-full flex flex-col justify-center  border border-blackish rounded-md'>
+        <div className='lg:hidden w-full flex flex-col justify-center border border-blackish rounded-md'>
           
           <div className='flex justify-between items-center p-5' onClick={() => {setIsOpen(!isOpen)}}>
             <h1 className='text-xl font-medium'>Operations</h1>
@@ -102,7 +103,7 @@ function SellerDashboard() {
             </div>
             
             {/* link */}
-            <div className='p-4 border-t border-blackish hover:bg-blackish hover:text-white' onClick={() => {setOperation("salesChart")}}>
+            <div className='p-4 border-t border-blackish hover:bg-blackish hover:text-white' onClick={() => {setOperation("profile")}}>
               <h1 className='font-medium text-xl'>Profile</h1>
             </div>
 
@@ -112,20 +113,39 @@ function SellerDashboard() {
         {/* Drop down nav for smaller displays ends here */}
 
         {/* Side nav for larger displays Begins Here*/}
-        <div className='hidden w-[10%] lg:flex lg:flex-col lg:border-r lg:border-blackish'>
+        <div className='hidden w-[15%] lg:flex lg:flex-col lg:border-r lg:border-blackish'>
 
           {/* link */}
-          <div className='w-full '>
-            <h1>See Products</h1>
+          <div className='p-3 w-full hover:bg-blackish hover:text-white hover:cursor-pointer border-b border-blackish' 
+            onClick={() => {setOperation("seeProducts")}}>
+            <h1 className='text-center font-medium'>See Products</h1>
+          </div>
+          
+          {/* link */}
+          <div className='p-3 w-full hover:bg-blackish hover:text-white hover:cursor-pointer border-b border-blackish'>
+            <h1 className='text-center font-medium'>Add Products</h1>
+          </div>
+          
+          {/* link */}
+          <div className='p-3 w-full hover:bg-blackish hover:text-white hover:cursor-pointer border-b border-blackish'
+            onClick={() => {setOperation("salesChart")}}>
+            <h1 className='text-center font-medium'>Sales</h1>
+          </div>
+          
+          {/* link */}
+          <div className='p-3 w-full hover:bg-blackish hover:text-white hover:cursor-pointer border-b border-blackish'
+            onClick={() => {setOperation("profile")}}>
+            <h1 className='text-center font-medium'>Profile</h1>
           </div>
 
         </div>
         {/* Side nav for larger displays Ends Here*/}
 
         {/* Content Begins Here */}
-        <div className='p-3 w-full lg:w-[90%]'>
+        <div className='p-3 w-full lg:w-[85%]'>
           { operation === "seeProducts" && <ProductsTable /> }
           { operation === "salesChart" && <SalesChart /> }
+          { operation === "profile" && <SellerProfile /> }
         </div>
         {/* Content Ends Here */}
 
